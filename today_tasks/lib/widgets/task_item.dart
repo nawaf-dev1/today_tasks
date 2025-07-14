@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import '../models/task_model.dart';
+
+class TaskItem extends StatelessWidget {
+  final TaskModel task;
+
+  const TaskItem({required this.task});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          children: [
+            // مربع إنجاز فارغ (مكان مستقبلًا للـ Checkbox)
+            Icon(Icons.check_box_outline_blank, color: Colors.grey),
+
+            SizedBox(width: 12),
+
+            // نصوص المهمة
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(task.title,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16)),
+                  SizedBox(height: 4),
+                  Text(task.description,
+                      style: TextStyle(fontSize: 14, color: Colors.grey[700])),
+                ],
+              ),
+            ),
+
+            // زر حذف بسيط (مستقبلاً تفعل عمله)
+            Icon(Icons.delete, color: Colors.redAccent),
+          ],
+        ),
+      ),
+    );
+  }
+}
