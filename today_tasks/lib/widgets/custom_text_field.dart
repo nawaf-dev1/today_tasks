@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-class CustomTectField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String hint;
   final int maxLines;
 
-  const CustomTectField({super.key,required this.hint,required this.maxLines});
+
+  const CustomTextField({super.key,required this.hint,required this.maxLines});
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextField(
-        keyboardType: TextInputType.text,
+  
           maxLines:maxLines ,//عدد الاسطرالمسموح بيها 
         decoration: InputDecoration(
           hintText: hint,//هنا عنوان الحقل
