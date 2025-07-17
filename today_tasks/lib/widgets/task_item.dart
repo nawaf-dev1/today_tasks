@@ -22,7 +22,7 @@ class _TaskItemState extends State<TaskItem> {
         padding: const EdgeInsets.all(12),
         child: Row(
           children: [
-            // مربع إنجاز فارغ (مكان مستقبلًا للـ Checkbox)
+            // مربع إنجاز فارغ 
             Icon(Icons.check_box_outline_blank, color: Colors.grey),
 
             SizedBox(width: 12),
@@ -31,11 +31,13 @@ class _TaskItemState extends State<TaskItem> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // العنوان
                   Text(
                     widget.task.title,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   SizedBox(height: 4),
+                  // الوصف
                   Text(
                     widget.task.description,
                     style: TextStyle(fontSize: 14, color: Colors.grey[700]),
