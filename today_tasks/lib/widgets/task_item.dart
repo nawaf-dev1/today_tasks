@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+
 import '../models/task_model.dart';
 
-class TaskItem extends StatelessWidget {
+class TaskItem extends StatefulWidget {
   final TaskModel task;
 
-  const TaskItem({required this.task});
+  const TaskItem({required this.task,});
 
+  @override
+  State<TaskItem> createState() => _TaskItemState();
+}
+
+
+
+class _TaskItemState extends State<TaskItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,23 +27,29 @@ class TaskItem extends StatelessWidget {
 
             SizedBox(width: 12),
 
-            // نصوص المهمة
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(task.title,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text(
+                    widget.task.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   SizedBox(height: 4),
-                  Text(task.description,
-                      style: TextStyle(fontSize: 14, color: Colors.grey[700])),
+                  Text(
+                    widget.task.description,
+                    style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                  ),
                 ],
               ),
             ),
-
-            // زر حذف بسيط (مستقبلاً تفعل عمله)
-            Icon(Icons.delete, color: Colors.redAccent),
+            // ايقونه الحذف
+            IconButton(
+              onPressed: () {
+              
+              },
+              icon: Icon(Icons.delete, color: Colors.redAccent),
+            ),
           ],
         ),
       ),
