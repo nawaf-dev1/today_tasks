@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:today_tasks/models/add_note_bottom_sheet.dart';
 
 import '../data/task_data.dart';
 import '../widgets/task_item.dart';
@@ -12,7 +13,15 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // TODO: إضافة مهمة
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+
+                   //استدعينا محتويات الكلاس
+                return AddNoteBottomSheet();
+                
+              },
+            );
           },
           child: Icon(Icons.add),
         ),
@@ -27,15 +36,12 @@ class HomeScreen extends StatelessWidget {
 
         backgroundColor: const Color.fromARGB(164, 61, 142, 209),
 
-        body: SizedBox(
-          height: 444,
-          child: ListView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: taskList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return TaskItem(task: taskList[index]);
-            },
-          ),
+        body: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: taskList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return TaskItem(task: taskList[index]);
+          },
         ),
       ),
     );
